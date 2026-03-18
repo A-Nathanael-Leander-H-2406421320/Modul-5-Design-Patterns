@@ -69,7 +69,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement notify function in Notification service to notify each Subscriber.`
     -   [x] Commit: `Implement publish function in Program service and Program controller.`
     -   [x] Commit: `Edit Product service methods to call notify after create/delete.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
+    -   [x] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -123,3 +123,21 @@ This is the place for you to write reflections:
     Postman is a powerful tool for testing and developing APIs. It allows me to easily send HTTP requests to my endpoints and view the responses, which is crucial for testing the functionality of my REST API. A feature I find particularly helpful is the ability to create and save collections of requests, which allows me to organize my tests and quickly rerun them as I make changes to my code. Overall, Postman is an essential tool for API development and testing, and I plan to continue using it for my Group Project and future software engineering projects.
 
 #### Reflection Publisher-3
+
+1. Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use?
+
+    **Answer:**
+    
+    In this tutorial case, we are using the Push model of the Observer Pattern. The publisher pushes notifications to the subscribers whenever there is a relevant event (such as product creation, promotion, or deletion). The publisher actively sends the notification data to the subscribers without waiting for them to request it, which is characteristic of the Push model.
+
+2. What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? (example: if you answer Q1 with Push, then imagine if we used Pull)
+
+    **Answer:**
+    
+    If we were to use the Pull model instead of the Push model, the subscribers would need to periodically check with the publisher for updates. This could lead to increased latency in receiving notifications, as subscribers might not receive updates immediately when they occur. Additionally, it could result in unnecessary network traffic and resource usage if subscribers are frequently polling for updates, especially if there are many subscribers or if updates are infrequent. On the other hand, the Pull model can be simpler to implement in some cases and can allow subscribers to control when they receive updates, but in this case, the Push model is more efficient and better suited for real-time notifications.
+
+3. Explain what will happen to the program if we decide to not use multi-threading in the notification process.
+
+    **Answer:**
+
+    If we decide not to use multi-threading in the notification process, the publisher would need to send notifications to each subscriber sequentially. This means that if there are multiple subscribers, the publisher would have to wait for each notification to be sent and acknowledged before moving on to the next subscriber. This could lead to significant delays in the notification process, especially if there are many subscribers or if the network communication is slow. As a result, the overall performance of the application could degrade, and subscribers might not receive timely updates, which could negatively impact user experience.
